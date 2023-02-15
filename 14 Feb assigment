@@ -1,0 +1,70 @@
+1. what is multithreading in python? why is it used? Name the module used to handle threads in python
+Ans. Multithreading - Multithreading is a threading technique in Python programming to run multiple threads concurrently by rapidly switching between threads with a CPU help (called context switching).
+threading module use to handle threads in python.
+Multithreading is particularly useful in applications where there are multiple I/O operations, such as reading from or writing to a database,
+downloading files from the internet, or processing input/output from a user. In such scenarios, multithreading can help to keep the program
+responsive and prevent it from becoming blocked while waiting for an I/O operation to complete.
+
+However, it is important to note that multithreading in Python may not always result in significant performance improvements, depending on the nature of the
+program and the tasks being performed. Additionally, multithreading can also introduce issues such as race conditions and deadlocks, which must be carefully
+managed in order to ensure correct program behavior.
+
+
+
+
+
+
+
+2. why threading module used? rite the use of the following functions
+ activeCount()
+ currentThread()
+ enumerate()
+ 
+3. Explain the following functions
+  run()
+ start()
+ join()
+ isAlive()
+ 
+ 
+4. rite a python program to create two threads. Thread one must print the list of squares and thread
+two must print the list of cubes
+
+
+
+5. State advantages and disadvantages of multithreading
+ans. Following are some of the common advantages of multithreading:
+
+Enhanced performance by decreased development time
+Simplified and streamlined program coding
+Improvised GUI responsiveness
+Simultaneous and parallelized occurrence of tasks
+Better use of cache storage by utilization of resources
+Decreased cost of maintenance
+Better use of CPU resource
+
+Multithreading does not only provide you with benefits, it has its disadvantages too. Let us go through some common disadvantages:
+
+Complex debugging and testing processes
+Overhead switching of context
+Increased potential for deadlock occurrence
+Increased difficulty level in writing a program
+Unpredictable results
+
+
+
+
+6. Explain deadlocks and race conditions.
+ans. A deadlock is a situation in which two or more threads or processes are blocked, waiting for each other to release resources they need in order to continue executing.
+In other words, each thread or process is holding a resource that another thread or process needs in order to make progress. Deadlocks can occur when resources are not properly managed, 
+or when there is a circular dependency among the resources that are being used.
+
+A race condition is a situation in which the outcome of a program depends on the relative timing or ordering of events that are not under the control of the program. 
+Specifically, a race condition can occur when two or more threads or processes access a shared resource in an unpredictable order, 
+leading to inconsistent or incorrect behavior. Race conditions can occur when different parts of a program make assumptions about the state of shared resources that are not synchronized,
+or when there are not enough synchronization mechanisms to ensure that access to shared resources is properly coordinated.
+
+In summary, deadlocks and race conditions are both synchronization problems that can occur in concurrent programs.
+Deadlocks occur when two or more threads or processes are blocked waiting for each other to release resources they need, while race conditions occur when the
+outcome of a program depends on the relative timing or ordering of events that are not under the control of the program.
+
