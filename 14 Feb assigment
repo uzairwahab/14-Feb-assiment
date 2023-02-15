@@ -20,15 +20,110 @@ managed in order to ensure correct program behavior.
  currentThread()
  enumerate()
  
+ Ans.The threading module in Python is used for creating and managing threads. Threads allow a program to run multiple tasks concurrently, 
+ which can be particularly useful when dealing with I/O-bound operations or other blocking tasks.
+
+Here are the descriptions of the functions you asked for:
+
+activeCount(): This function returns the number of Thread objects that are active in the current thread's ThreadGroup. An active thread is any thread that
+has been started but has not yet been joined.
+
+currentThread(): This function returns a reference to the current Thread object. The current Thread object is the thread that is executing this function.
+
+enumerate(): This function returns a list of all Thread objects that are active in the current thread's ThreadGroup. An active thread is any thread that has
+been started but has not yet been joined. This function is particularly useful for debugging and monitoring purposes, as it allows you to inspect the state of 
+all threads in the current ThreadGroup.
+ 
 3. Explain the following functions
   run()
+  ans. import threading
+import time
+
+class MyThread(threading.Thread):
+    def run(self):
+        print(f"{self.getName()} starting")
+        time.sleep(1)
+        print(f"{self.getName()} finishing")
+
+threads = []
+for i in range(5):
+    t = MyThread()
+    t.start()
+    threads.append(t)
+
  start()
+ ans. 
+ import threading
+import time
+
+def test2 (id):
+    print('prog start %d'%id)
+    time.sleep(1)
+thread2 = [threading.Thread(target= test2 , args= (i,)) for i in range(11)]
+for i in thread2:
+    i.start()
+for i in thread2:
+    i.start()
+
+ 
+ 
  join()
+ ans.import threading
+import time
+
+def task():
+    print(f"{threading.current_thread().name} starting")
+    time.sleep(1)
+    print(f"{threading.current_thread().name} finishing")
+
+threads = []
+for i in range(5):
+    t = threading.Thread(target=task)
+    t.start()
+    threads.append(t)
+
+for t in threads:
+    t.join()
+
+print("All threads have finished")
+
+ 
  isAlive()
- 
- 
-4. rite a python program to create two threads. Thread one must print the list of squares and thread
+ Ans. The isAlive() function is likely associated with a multi-threaded program and is used to check whether a particular thread is currently running or not. In programming, a thread is a unit of execution that runs independently of the main program and other threads.
+
+When a thread is started, it enters the "running" state and begins executing its code. However, at some point, it may complete its task or encounter an error and terminate. In that case, it transitions to a "dead" state and cannot be restarted.
+
+The isAlive() function returns a boolean value indicating whether a thread is in the "running" state or not. If the thread is running, it returns True, and if it is not running (either because it has completed its task or has encountered an error), it returns False.
+
+This function can be useful for coordinating and synchronizing the execution of multiple threads in a program. For example, a program might wait for a particular thread to complete its task before continuing to execute other parts of the code. By using the isAlive() function, the program can check whether the thread is still running and decide whether to wait or continue execution.
+
+
+
+4. write a python program to create two threads. Thread one must print the list of squares and thread
 two must print the list of cubes
+ans. import threading
+
+def print_squares(n):
+    for i in range(1, n+1):
+        print(i*i)
+
+def print_cubes(n):
+    for i in range(1, n+1):
+        print(i*i*i)
+
+# create the first thread to print squares
+thread1 = threading.Thread(target=print_squares, args=(10,))
+
+# create the second thread to print cubes
+thread2 = threading.Thread(target=print_cubes, args=(10,))
+
+# start both threads
+thread1.start()
+thread2.start()
+
+# wait for both threads to finish
+thread1.join()
+thread2.join()
 
 
 
